@@ -1,6 +1,12 @@
 #include "Point.h"
 
-Point::Point(/* args */)
+Point::Point(int X, int Y)
+{
+    pixel = new CPixel();
+    setPosition(X,Y);
+}
+
+Point::Point()
 {
     pixel = new CPixel();
 }

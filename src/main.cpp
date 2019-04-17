@@ -7,7 +7,7 @@
 using namespace std;
 
 #include "CBitmap.h"
-#include "Point.h"
+#include "Ligne.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,15 +17,24 @@ int main(int argc, char *argv[])
 
     cout << "(II) CBitmap object creation" << endl;
     CBitmap *image = new CBitmap();
-    Point *point = new Point();
+    Ligne *line = new Ligne();
+    Point *pt = new Point();
+
     string filename2 = "Sortie.bmp";
 
     cout << "(II) CImage pointer extraction" << endl;
     CImage *img = new CImage(200, 200);
-    
-    point->setColor(olive);
-    point->setPosition(20, 30);
-    point->drawPoint(img);
+
+    line->setColor(red);
+    line->setCoordinates(30,10,150,60);
+    line->drawLigne(img);pt->setPosition(30,40);
+    pt->setColor(red);
+    pt->drawPoint(img);
+
+
+    // pt->setPosition(30,40);
+    // pt->setColor(red);
+    // pt->drawPoint(img);
 
     image->setImage(img);
     cout << "(II) CBitmap image saving" << endl;

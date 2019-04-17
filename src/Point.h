@@ -1,8 +1,8 @@
 #include "CPixel.h"
 #include "CImage.h"
-
-
 enum Color { red, green, blue, cyan, magenta, olive, crimson, lightcoral };
+
+
 class Point
 {
 private:
@@ -10,13 +10,12 @@ private:
    int posY;
    CPixel *pixel;
 public:
-    Point(/* args */);
+    Point(int X, int Y);
+    Point();
     ~Point();
-    void setColor(Color);
+    void setColor(Color color);
     void setPosition(int x, int y);
     void drawPoint(CImage *img);
     int getPosX();
     int getPosY();
 };
-
-

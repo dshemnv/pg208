@@ -2,7 +2,7 @@ TARGET 		= bitmap
 
 CC 			= g++
 
-CFLAGS 		= -W -Wall
+CFLAGS 		= -g -W -Wall
 
 LINKER 		= g++ -o
 

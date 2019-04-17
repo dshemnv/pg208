@@ -8,7 +8,7 @@
         {       "name": "C++ Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${command:extension.vscode-wsl-workspaceFolder}/${fileBasenameNoExtension}.exe",
+                "program": "${command:extension.vscode-wsl-workspaceFolder}/bin/bitmap",
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${command:extension.vscode-wsl-workspaceFolder}",

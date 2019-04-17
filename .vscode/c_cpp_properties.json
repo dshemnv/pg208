@@ -1,16 +1,24 @@
 {
     "configurations": [
-      {
-        "name": "WSL",
-        "intelliSenseMode": "gcc-x64",
-        "compilerPath": "/usr/bin/gcc",
-        "includePath": [
-        "${workspaceFolder}/**"
-        ],
-        "defines": [],
-        "cStandard": "c11",
-        "cppStandard": "c++17"
-      }
+        {
+            "name": "Win32",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
     ],
     "version": 4
-  }
+}

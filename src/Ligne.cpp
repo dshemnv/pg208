@@ -12,13 +12,13 @@ Ligne::~Ligne()
 
 }
 
-void Ligne::setCoordinates(int x1, int y1, int x2, int y2)
+void Ligne::setCoordinates(double x1, double y1, double x2, double y2)
 {
     if (x1 < x2)
     {
         if (y1 < y2)
         {
-            origine->setPosition(x1,y1);
+            origine->setPosition( x1,y1);
             fin->setPosition(x2,y2);
         }
         else
@@ -51,17 +51,17 @@ void Ligne::setColorLine(Color color)
 
 void Ligne::drawLigne(CImage *img)
 {
-    double xo = (double) origine->getPosX();
-    double yo = (double) origine->getPosY();
+    double xo = origine->getPosX();
+    double yo = origine->getPosY();
 
-    double xf = (double) fin->getPosX();
-    double yf = (double) fin->getPosY();
+    double xf = fin->getPosX();
+    double yf = fin->getPosY();
 
     double coef = (yf - yo)/(xf - xo);
 
     while(trace->getPosX() != xf && trace->getPosY() != yf)
     {
-        trace->setPosition((int)xo,(int)yo);
+        trace->setPosition(xo,yo);
         trace->drawPoint(img);
         xo++;
         yo += coef;

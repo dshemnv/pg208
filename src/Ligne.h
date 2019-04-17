@@ -11,5 +11,5 @@ public:
     ~Ligne();
     void drawLigne(CImage *img);
     void setColorLine(Color color);
-    void setCoordinates(int x1, int y1, int x2, int y2);
+    void setCoordinates(double x1, double y1, double x2, double y2);
 };

@@ -43,10 +43,10 @@ void Point::setColor(Color color)
     }       
 }
 
-void Point::setPosition(int x, int y)
+void Point::setPosition(double x, double y)
 {
-    posX = x;
-    posY = y;
+    posX = (int) x;
+    posY = (int) y;
 }
 
 void Point::drawPoint(CImage *img)
@@ -55,12 +55,12 @@ void Point::drawPoint(CImage *img)
   pi->RGB(pixel->Red(), pixel->Green(), pixel->Blue());
 }
 
-int Point::getPosX()
+double Point::getPosX()
 {
-    return posX;
+    return (double) posX;
 }
 
-int Point::getPosY()
+double Point::getPosY()
 {
-    return posY;
+    return (double) posY;
 }

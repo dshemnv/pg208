@@ -14,8 +14,8 @@ public:
     Point();
     ~Point();
     void setColor(Color color);
-    void setPosition(int x, int y);
+    void setPosition(double x, double y);
     void drawPoint(CImage *img);
-    int getPosX();
-    int getPosY();
+    double getPosX();
+    double getPosY();
 };

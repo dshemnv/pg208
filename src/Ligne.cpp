@@ -2,9 +2,9 @@
 
 Ligne::Ligne()
 {
-    Point *origine = new Point();
-    Point *fin = new Point();
-    Point *trace = new Point();
+    origine = new Point();
+    fin = new Point();
+    trace = new Point();
 }
 
 Ligne::~Ligne()
@@ -44,24 +44,24 @@ void Ligne::setCoordinates(int x1, int y1, int x2, int y2)
     trace->setPosition(origine->getPosX(),origine->getPosY());
 }
 
-void Ligne::setColor(Color color)
+void Ligne::setColorLine(Color color)
 {
     trace->setColor(color);
 }
 
 void Ligne::drawLigne(CImage *img)
 {
-    int xo = origine->getPosX();
-    int yo = origine->getPosY();
+    double xo = (double) origine->getPosX();
+    double yo = (double) origine->getPosY();
 
-    int xf = fin->getPosX();
-    int yf = fin->getPosY();
+    double xf = (double) fin->getPosX();
+    double yf = (double) fin->getPosY();
 
-    int coef = (yf - yo)/(xf - xo);
+    double coef = (yf - yo)/(xf - xo);
 
     while(trace->getPosX() != xf && trace->getPosY() != yf)
     {
-        trace->setPosition(xo,yo);
+        trace->setPosition((int)xo,(int)yo);
         trace->drawPoint(img);
         xo++;
         yo += coef;

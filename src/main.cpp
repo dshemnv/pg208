@@ -25,9 +25,10 @@ int main(int argc, char *argv[])
     cout << "(II) CImage pointer extraction" << endl;
     CImage *img = new CImage(200, 200);
 
-    line->setColor(red);
+    line->setColorLine(olive);
     line->setCoordinates(30,10,150,60);
-    line->drawLigne(img);pt->setPosition(30,40);
+    line->drawLigne(img);
+    pt->setPosition(30,40);
     pt->setColor(red);
     pt->drawPoint(img);
 

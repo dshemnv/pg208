@@ -43,6 +43,6 @@ int main(int argc, char *argv[])
     image->setImage(img);
     cout << "(II) CBitmap image saving" << endl;
     image->SaveBMP(filename2);
-
+// TEST
     return 1;
 }

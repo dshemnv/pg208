@@ -1,6 +1,5 @@
 #include "Cercle.h"
 
-
 Cercle::Cercle()
 {
     trace = new Point();
@@ -13,7 +12,7 @@ Cercle::~Cercle()
 
 void Cercle::setPosition(int x, int y)
 {
-    centre->setPosition(x,y);
+    centre->setPosition(x, y);
 }
 
 void Cercle::setRadius(int r)
@@ -30,22 +29,21 @@ void Cercle::drawCircle(CImage *img)
 {
     double xo = centre->getPosX();
     double yo = centre->getPosY();
+    int R = rayon;
 
-    double x =  xo;
-    double y =  yo;
+    // trace->setPosition(xo,yo);
+    // trace->drawPoint(img);
 
-    double R = (double) rayon;
-
-    double xf = -xo;
-    double yf = sqrt((R - xf + xo)*(R + xf - xo)) + yo;
-    
-    while (x != xf && y != yf)
+    for (double x = (xo - R); x < xo + R + 1; x++)
     {
-        trace->setPosition(x,y);
-        trace->drawPoint(img);
-
-        x = sqrt((R - y + yo)*(R + y - yo)) + xo;
-        y = sqrt((R - x + xo)*(R + x - xo)) + yo;
+        for (double y = (yo - R); y < yo + R + 1; y++)
+        {
+            double R2 = pow((x - xo),2) + pow((y - yo),2);
+            if (R2/pow(R,2) >= 0.95 && R2/pow(R,2) <= 1.05)
+            {
+                trace->setPosition(x,y);
+                trace->drawPoint(img);
+            }
+        }
     }
-    
 }

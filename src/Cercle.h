@@ -15,4 +15,3 @@ public:
     void setColor(Color color);
     void drawCircle(CImage *img);
 };
-

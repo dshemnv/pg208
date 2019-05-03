@@ -34,9 +34,10 @@ int main(int argc, char *argv[])
     pt->setColor(red);
     pt->drawPoint(img);
 
-    // circ->setPosition(30,20);
-    // circ->setColor(red);
-    // circ->setRadius(10);
+    circ->setPosition(150,30);
+    circ->setColor(blue);
+    circ->setRadius(20);
+    circ->drawCircle(img);
 
     
     image->setImage(img);

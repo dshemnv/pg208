@@ -1,6 +1,9 @@
 #include "Point.h"
 #include <math.h>
 
+#ifndef CERCLE_H_
+#define CERCLE_H_
+
 class Cercle
 {
 private:
@@ -15,3 +18,4 @@ public:
     void setColor(Color color);
     void drawCircle(CImage *img);
 };
+#endif

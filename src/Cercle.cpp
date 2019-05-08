@@ -31,9 +31,6 @@ void Cercle::drawCircle(CImage *img)
     double yo = centre->getPosY();
     int R = rayon;
 
-    // trace->setPosition(xo,yo);
-    // trace->drawPoint(img);
-
     for (double x = (xo - R); x < xo + R + 1; x++)
     {
         for (double y = (yo - R); y < yo + R + 1; y++)

@@ -9,6 +9,7 @@ using namespace std;
 #include "CBitmap.h"
 #include "Ligne.h"
 #include "Cercle.h"
+#include "Rectangle.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
     Ligne *line = new Ligne();
     Point *pt = new Point();
     Cercle *circ = new Cercle();
+    Rectangle *rect = new Rectangle();
 
     string filename2 = "Sortie.bmp";
 
@@ -39,10 +41,15 @@ int main(int argc, char *argv[])
     circ->setRadius(20);
     circ->drawCircle(img);
 
+    rect->setPosition(20,50);
+    rect->setColor(red);
+    rect->setLengths(40,20);
+    rect->drawRectangle(img);
+
     
     image->setImage(img);
     cout << "(II) CBitmap image saving" << endl;
     image->SaveBMP(filename2);
-// TEST
+
     return 1;
 }

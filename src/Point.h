@@ -1,7 +1,8 @@
+#ifndef POINT_H
+#define POINT_H
 #include "CPixel.h"
 #include "CImage.h"
 enum Color { red, green, blue, cyan, magenta, olive, crimson, lightcoral };
-
 
 class Point
 {
@@ -19,3 +20,4 @@ public:
     double getPosX();
     double getPosY();
 };
+#endif

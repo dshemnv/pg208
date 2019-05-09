@@ -14,7 +14,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-    cout << "(II) P_Bitmap exection start (" << __DATE__ << " - " << __TIME__ << ")" << endl;
+    cout << "(II) P_Bitmap execution start (" << __DATE__ << " - " << __TIME__ << ")" << endl;
     cout << "(II) + Number of arguments = " << argc << endl;
 
     cout << "(II) CBitmap object creation" << endl;
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     rect->setPosition(20,50);
     rect->setColor(red);
     rect->setLengths(40,20);
-    rect->drawRectangle(img);
+    rect->drawRectangles(img);
 
     
     image->setImage(img);

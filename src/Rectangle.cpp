@@ -107,3 +107,13 @@ void Rectangle::drawRectangle(CImage *img)
     */
 
 }
+
+void Rectangle::drawRectangles(CImage *img)
+{
+    while (longeur && largeur != 1)
+    {
+        longeur--;
+        largeur--;
+        drawRectangle(img);
+    }
+}

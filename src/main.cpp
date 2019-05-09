@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     Ligne *line = new Ligne();
     Point *pt = new Point();
     Cercle *circ = new Cercle();
+    Cercle *circ2 = new Cercle();
     Rectangle *rect = new Rectangle();
 
     string filename2 = "Sortie.bmp";
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
     CImage *img = new CImage(200, 200);
 
     line->setColorLine(olive);
-    line->setCoordinates(30,10,150,60);
+    line->setCoordinates(100,10,20,60);
     line->drawLigne(img);
     pt->setPosition(30,40);
     pt->setColor(red);
@@ -40,6 +41,12 @@ int main(int argc, char *argv[])
     circ->setColor(blue);
     circ->setRadius(20);
     circ->drawCircle(img);
+
+    circ2->setPosition(150,30);
+    circ2->setColor(red);
+    circ2->setRadius(18);
+    circ2->drawCircles(img);
+
 
     rect->setPosition(20,50);
     rect->setColor(red);

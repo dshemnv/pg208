@@ -39,8 +39,8 @@ void Ligne::setCoordinates(double x1, double y1, double x2, double y2)
     //         fin->setPosition(x2, y2);
     //     }
     // }
-    origine->setPosition(x1,y1);
-    fin->setPosition(x2,y2);
+    origine->setPosition(x1, y1);
+    fin->setPosition(x2, y2);
     trace->setPosition(origine->getPosX(), origine->getPosY());
 }
 
@@ -108,7 +108,14 @@ void Ligne::drawLigne(CImage *img)
             trace->setPosition(xo, yo);
             trace->drawPoint(img);
             xo++;
-            yo += coef;
+            if (coef < 0)
+            {
+                yo -= coef;
+            }
+            else
+            {
+                yo += coef;
+            }
         }
     }
 }

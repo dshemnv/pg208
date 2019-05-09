@@ -17,5 +17,7 @@ public:
     void setRadius(int r);
     void setColor(Color color);
     void drawCircle(CImage *img);
+    void drawCircles(CImage *img);
 };
+
 #endif

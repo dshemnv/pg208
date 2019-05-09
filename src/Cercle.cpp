@@ -35,10 +35,30 @@ void Cercle::drawCircle(CImage *img)
     {
         for (double y = (yo - R); y < yo + R + 1; y++)
         {
-            double R2 = pow((x - xo),2) + pow((y - yo),2);
-            if (R2/pow(R,2) >= 0.95 && R2/pow(R,2) <= 1.05)
+            double R2 = pow((x - xo), 2) + pow((y - yo), 2);
+            if (R2 / pow(R, 2) >= 0.95 && R2 / pow(R, 2) <= 1.05)
             {
-                trace->setPosition(x,y);
+                trace->setPosition(x, y);
+                trace->drawPoint(img);
+            }
+        }
+    }
+}
+
+void Cercle::drawCircles(CImage *img)
+{
+    double xo = centre->getPosX();
+    double yo = centre->getPosY();
+    int R = rayon;
+
+    for (double x = (xo - R); x < xo + R + 1; x++)
+    {
+        for (double y = (yo - R); y < yo + R + 1; y++)
+        {
+            double R2 = pow((x - xo), 2) + pow((y - yo), 2);
+            if (R2 / pow(R, 2) <= 1.02)
+            {
+                trace->setPosition(x, y);
                 trace->drawPoint(img);
             }
         }

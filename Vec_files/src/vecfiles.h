@@ -17,7 +17,7 @@ void convert_line(string str_lin);
 void convert_square(string str_sqr);
 void convert_rectangle(string str_rec);
 void convert_circle(string str_cir);
-string is_comment(string lines);
+bool is_comment(string lines);
 
 
 

@@ -1,21 +1,13 @@
 #include "vecfiles.h"
 #include <iostream>
 
-string is_comment(string lines)
+bool is_comment(string lines)
 {
-    int i = 0, flag = 1;
-    while(flag!=0)
-    {
-        i++;
-        if(lines[i-1] == '#' && lines[i] == '#')
+    if(lines[0] == '#' && lines[1] == '#')
         {
-            flag = 0;
-        }
-
-    }
-    // lines=lines.erase(i-1,(lines.length()-1-i-1));
-    cout << i << endl; 
-    return lines;
+            return true;
+        } 
+    return false;
 }
 
 // void convert_ligne(string str_lin)
@@ -27,7 +19,7 @@ string is_comment(string lines)
 void openfile(string filename)
 {
     ifstream vecfile;
-    string lines; 
+    string lines;
     vecfile.open(filename.c_str(), std::ifstream::in);   
     if(!vecfile.is_open())
     {
@@ -36,7 +28,9 @@ void openfile(string filename)
     while(!vecfile.eof())
     {
         getline(vecfile,lines);
-        lines=is_comment(lines);    
+        if(!is_comment(lines))
+        {   
+            cout<<lines<<endl;
         // if((lines.find("CERCLE")!=lines.npos))
         // {
         //       convert_line(lines);          
@@ -57,7 +51,7 @@ void openfile(string filename)
         // {
             
         // }
-        
+        }        
     }
     vecfile.close();
 }

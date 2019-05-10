@@ -1,6 +1,7 @@
 #include "Point.h"
 #include <math.h>
 
+
 #ifndef CERCLE_H_
 #define CERCLE_H_
 

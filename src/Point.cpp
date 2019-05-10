@@ -38,6 +38,14 @@ void Point::setColor(Color color, int transparence)
         pixel->RGB(128, 128, 0);
         break;
 
+    case crimson:
+        pixel->RGB(153,0,0);
+        break;
+        
+    case lightcoral:
+        pixel->RGB(240,128,128);
+        break;
+
     default:
         break;
     }

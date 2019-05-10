@@ -22,37 +22,43 @@ int main(int argc, char *argv[])
     // Point *pt = new Point();
     // Cercle *circ = new Cercle();
     // Cercle *circ2 = new Cercle();
-    // Rectangle *rect = new Rectangle();
+    Rectangle *rect = new Rectangle();
+    Carre *squ = new Carre();
 
     string filename2 = "Sortie.bmp";
 
     cout << "(II) CImage pointer extraction" << endl;
     CImage *img = new CImage(200, 200);
 
-    line->setColor(olive, 30);
-    line->setCoordinates(100,10,20,60);
-    line->drawLigne(img);
-    pt->setPosition(30,40);
-    pt->setColor(red, 10);
-    pt->drawPoint(img);
+    // line->setColor(olive, 30);
+    // line->setCoordinates(100,10,20,60);
+    // line->drawLigne(img);
+    // pt->setPosition(30,40);
+    // pt->setColor(red, 10);
+    // pt->drawPoint(img);
 
-    circ->setPosition(150,30);
-    circ->setColor(blue, 100);
-    circ->setRadius(20);
-    circ->drawCircle(img);
+    // circ->setPosition(150,30);
+    // circ->setColor(blue, 100);
+    // circ->setRadius(20);
+    // circ->drawCircle(img);
 
-    circ2->setPosition(150,30);
-    circ2->setColor(red, 70);
-    circ2->setRadius(18);
-    circ2->drawCircles(img);
+    // circ2->setPosition(150,30);
+    // circ2->setColor(red, 70);
+    // circ2->setRadius(18);
+    // circ2->drawCircles(img);
 
 
-    rect->setPosition(20,50);
-    rect->setColor(red, 70);
-    rect->setLengths(40,20);
-    rect->drawRectangles(img);
+    squ->setPosition(20,50);
+    squ->setColor(blue, 70);
+    squ->setLengths(50);
+    squ->drawRectangles(img);
 
-    openfile("test.vec",img);
+    // rect->setPosition(20,60);
+    // rect->setColor(blue, 100);
+    // rect->setLengths(50,40);
+    // rect->drawRectangle(img);
+
+    // openfile("test.vec",img);
 
     
     image->setImage(img);

@@ -9,6 +9,14 @@ Rectangle::~Rectangle()
 {
 }
 
+Carre::Carre(/* args */)
+{
+}
+
+Carre::~Carre()
+{
+}
+
 void Rectangle::setPosition(int x, int y)
 {
     double Xo = (double)x;
@@ -24,6 +32,11 @@ void Rectangle::setLengths(int length, int width)
 {
     longeur = length;
     largeur = width;
+}
+
+void Carre::setLengths(int width)
+{
+    Rectangle::setLengths(width,width);
 }
 
 void Rectangle::setColor(Color color, int transparence)
@@ -116,6 +129,7 @@ void Rectangle::drawRectangles(CImage *img)
     //     largeur--;
     //     drawRectangle(img);
     // }
+    
     drawRectangle(img);
     for (int i = 1; i < largeur; i++)
     {

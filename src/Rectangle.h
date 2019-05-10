@@ -16,7 +16,7 @@ public:
     ~Rectangle();
     void setPosition(int x, int y);
     void setLengths(int length, int width);
-    void setColor(Color color);
+    void setColor(Color color, int transparence);
     void drawSide(int coordX, int coordY, CImage *img);
     void drawRectangle(CImage *img);
     void drawRectangles(CImage *img);

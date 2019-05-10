@@ -16,7 +16,7 @@ public:
     ~Cercle();
     void setPosition(int x, int y);
     void setRadius(int r);
-    void setColor(Color color);
+    void setColor(Color color, int transparence);
     void drawCircle(CImage *img);
     void drawCircles(CImage *img);
 };

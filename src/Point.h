@@ -10,12 +10,15 @@ private:
    int posX;
    int posY;
    CPixel *pixel;
+   int transparence;
 public:
     Point(int X, int Y);
     Point();
     ~Point();
-    void setColor(Color color);
+    void setColor(Color color, int transparence);
     void setPosition(double x, double y);
+    void setTransparency(int transp);
+    CPixel* drawTransparency(CPixel *oldp);
     void drawPoint(CImage *img);
     double getPosX();
     double getPosY();

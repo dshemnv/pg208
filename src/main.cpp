@@ -30,26 +30,26 @@ int main(int argc, char *argv[])
     cout << "(II) CImage pointer extraction" << endl;
     CImage *img = new CImage(200, 200);
 
-    line->setColorLine(olive);
+    line->setColor(olive, 30);
     line->setCoordinates(100,10,20,60);
     line->drawLigne(img);
     pt->setPosition(30,40);
-    pt->setColor(red);
+    pt->setColor(red, 10);
     pt->drawPoint(img);
 
     circ->setPosition(150,30);
-    circ->setColor(blue);
+    circ->setColor(blue, 100);
     circ->setRadius(20);
     circ->drawCircle(img);
 
     circ2->setPosition(150,30);
-    circ2->setColor(red);
+    circ2->setColor(red, 70);
     circ2->setRadius(18);
     circ2->drawCircles(img);
 
 
     rect->setPosition(20,50);
-    rect->setColor(red);
+    rect->setColor(red, 70);
     rect->setLengths(40,20);
     rect->drawRectangles(img);
 

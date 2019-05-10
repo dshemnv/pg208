@@ -20,9 +20,9 @@ void Cercle::setRadius(int r)
     rayon = r;
 }
 
-void Cercle::setColor(Color color)
+void Cercle::setColor(Color color, int transparence)
 {
-    trace->setColor(color);
+    trace->setColor(color, transparence);
 }
 
 void Cercle::drawCircle(CImage *img)

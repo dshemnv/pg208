@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     // cout << "(II) CImage pointer extraction" << endl;
     // CImage *img = new CImage(200, 200);
 
-<<<<<<< HEAD
     line->setColor(olive, 30);
     line->setCoordinates(100,10,20,60);
     line->drawLigne(img);
@@ -54,30 +53,6 @@ int main(int argc, char *argv[])
     rect->setColor(red, 70);
     rect->setLengths(40,20);
     rect->drawRectangles(img);
-=======
-    // line->setColorLine(olive);
-    // line->setCoordinates(100,10,20,60);
-    // line->drawLigne(img);
-    // pt->setPosition(30,40);
-    // pt->setColor(red);
-    // pt->drawPoint(img);
-
-    // circ->setPosition(150,30);
-    // circ->setColor(blue);
-    // circ->setRadius(20);
-    // circ->drawCircle(img);
-
-    // circ2->setPosition(150,30);
-    // circ2->setColor(red);
-    // circ2->setRadius(18);
-    // circ2->drawCircles(img);
-
-
-    // rect->setPosition(20,50);
-    // rect->setColor(red);
-    // rect->setLengths(40,20);
-    // rect->drawRectangles(img);
->>>>>>> 32fe99779e26a88de4130d5e1df5caa1bbc6d74d
 
     
     // image->setImage(img);

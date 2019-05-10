@@ -4,7 +4,7 @@
 #include "CImage.h"
 
 enum Color { red, green, blue, cyan, magenta, olive, crimson, lightcoral };
-string Color_str[8]={ "red", "green", "blue", "cyan", "magenta", "olive", "crimson", "lightcoral" };
+const vector<string> Col_str={"red", "green", "blue", "cyan", "magenta", "olive", "crimson", "lightcoral"};
 
 class Point
 {

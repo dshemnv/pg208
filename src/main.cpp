@@ -6,30 +6,28 @@
 
 using namespace std;
 
-#include "CBitmap.h"
-#include "Ligne.h"
-#include "Cercle.h"
-#include "Rectangle.h"
+
 #include "vecfiles.h"
+#include "CBitmap.h"
 
 int main(int argc, char *argv[])
 {
 
-    // cout << "(II) P_Bitmap execution start (" << __DATE__ << " - " << __TIME__ << ")" << endl;
-    // cout << "(II) + Number of arguments = " << argc << endl;
+    cout << "(II) P_Bitmap execution start (" << __DATE__ << " - " << __TIME__ << ")" << endl;
+    cout << "(II) + Number of arguments = " << argc << endl;
 
-    // cout << "(II) CBitmap object creation" << endl;
-    // CBitmap *image = new CBitmap();
+    cout << "(II) CBitmap object creation" << endl;
+    CBitmap *image = new CBitmap();
     // Ligne *line = new Ligne();
     // Point *pt = new Point();
     // Cercle *circ = new Cercle();
     // Cercle *circ2 = new Cercle();
     // Rectangle *rect = new Rectangle();
 
-    // string filename2 = "Sortie.bmp";
+    string filename2 = "Sortie.bmp";
 
-    // cout << "(II) CImage pointer extraction" << endl;
-    // CImage *img = new CImage(200, 200);
+    cout << "(II) CImage pointer extraction" << endl;
+    CImage *img = new CImage(200, 200);
 
     // line->setColorLine(olive);
     // line->setCoordinates(100,10,20,60);
@@ -54,12 +52,11 @@ int main(int argc, char *argv[])
     // rect->setLengths(40,20);
     // rect->drawRectangles(img);
 
-    
-    // image->setImage(img);
-    // cout << "(II) CBitmap image saving" << endl;
-    // image->SaveBMP(filename2);
+    openfile("test.vec",img);
 
-    openfile("test.vec");
-    cout<<Color_str[1]<<endl;
+    
+    image->setImage(img);
+    cout << "(II) CBitmap image saving" << endl;
+    image->SaveBMP(filename2);
     return 1;
 }

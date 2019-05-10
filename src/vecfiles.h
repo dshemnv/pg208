@@ -6,16 +6,17 @@
 #include <fstream>
 using namespace std;
 
-#include "CBitmap.h"
-#include "Ligne.h"
-#include "Cercle.h"
-#include "Rectangle.h"
-#include "Point.h"
-
 #ifndef VECFILES_H_
 #define VECFILES_H_
 
-void openfile(string filename);
+#include "Cercle.h"
+#include "Ligne.h"
+#include "Point.h"
+#include "Rectangle.h"
+
+
+
+void openfile(string filename, CImage *img);
 void convert_point(string str_rec);
 void convert_line(string str_lin);
 void convert_square(string str_sqr);

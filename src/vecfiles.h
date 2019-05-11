@@ -24,5 +24,6 @@ Rectangle* convert_rectangle(string str_rec, int i);
 Cercle* convert_circle(string str_cir, int i);
 Color convert_color(string color);
 bool is_comment(string lines);
+int max_plan(int plan1, int plan2);
 
 #endif

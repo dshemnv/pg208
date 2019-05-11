@@ -27,84 +27,88 @@ bool is_comment(string lines)
 //[CERCLE : X, Y, RAYON, COULEUR, TRANSPARENCE;]
 Cercle *convert_circle(string str_cir, int i)
 {
-	int x, y, r, transparence;
+	int x, y, r, transparence, plan;
 	char str[20];
 	Cercle *c = new Cercle();
 	if(i == 0)
 	{
-		sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,], %d;]", &x, &y, &r, str, &transparence);
+		sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,], %d, %d;]", &x, &y, &r, str, &transparence, &plan);
 	}
 	else
 	{
-		sscanf(str_cir.c_str(), "[CERCLES : %d, %d, %d, %[^,], %d;]", &x, &y, &r, str, &transparence);
+		sscanf(str_cir.c_str(), "[CERCLES : %d, %d, %d, %[^,], %d, %d;]", &x, &y, &r, str, &transparence, &plan);
 	}
 	c->setPosition(x, y);
 	c->setRadius(r);
 	c->setColor(convert_color((string)str),transparence);
+	c->setPlan(plan);
 	return c;
 }
 
 //[RECTANGLE : X, Y, LONGUEUR, HAUTEUR, COULEUR, TRANSPARENCE;]
 Rectangle* convert_rectangle(string str_rec,int i)
 {
-	int x, y, L, h, transparence;
+	int x, y, L, h, transparence, plan;
 	char col[20];
 	Rectangle *r = new Rectangle();
 	if(i == 0)
 	{
-		sscanf(str_rec.c_str(), "[RECTANGLE : %d, %d, %d, %d, %[^,], %d;]", &x, &y, &L, &h, col, &transparence);
+		sscanf(str_rec.c_str(), "[RECTANGLE : %d, %d, %d, %d, %[^,], %d, %d;]", &x, &y, &L, &h, col, &transparence, &plan);
 	}
 	else
 	{
-		sscanf(str_rec.c_str(), "[RECTANGLES : %d, %d, %d, %d, %[^,], %d;]", &x, &y, &L, &h, col, &transparence);
+		sscanf(str_rec.c_str(), "[RECTANGLES : %d, %d, %d, %d, %[^,], %d, %d;]", &x, &y, &L, &h, col, &transparence, &plan);
 	}	
 	r->setPosition(x, y);
 	r->setLengths(L,h);
 	r->setColor(convert_color((string)col), transparence);
-	cout<<x<<" "<<y<<" "<<" "<<col<<" "<<L<<" "<<h<<" "<<transparence<<endl;
+	r->setPlan(plan);
 	return r;
 }
 
 //[CARRE : X, Y, LONGUEUR, HAUTEUR, COULEUR, TRANSPARENCE;]
 Carre* convert_square(string str_sqr, int i)
 {
-	int x, y, c, transparence;
+	int x, y, c, transparence, plan;
 	char col[20];
 	Carre *ca = new Carre();
 	if(i == 0)
 	{
-		sscanf(str_sqr.c_str(), "[CARRE : %d, %d, %d, %[^,], %d;]", &x, &y, &c, col, &transparence);
+		sscanf(str_sqr.c_str(), "[CARRE : %d, %d, %d, %[^,], %d, %d;]", &x, &y, &c, col, &transparence, &plan);
 	}
 	else
 	{
-		sscanf(str_sqr.c_str(), "[CARRES : %d, %d, %d, %[^,], %d;]", &x, &y, &c, col, &transparence);
+		sscanf(str_sqr.c_str(), "[CARRES : %d, %d, %d, %[^,], %d, %d;]", &x, &y, &c, col, &transparence, &plan);
 	}	
 	ca->setPosition(x, y);
 	ca->setLengths(c);
 	ca->setColor(convert_color((string)col), transparence);
+	ca->setPlan(plan);
 	return ca;
 }
 
 //[LIGNE : X1, Y1, X2, Y2, COULEUR, TRANSPARENCE;]
 Ligne* convert_line(string str_lin)
 {
-	int x1, y1, x2, y2, transparence;
+	int x1, y1, x2, y2, transparence, plan;
 	char col[20];
 	Ligne *lin = new Ligne();
-	sscanf(str_lin.c_str(), "[LIGNE : %d, %d, %d, %d, %[^,], %d;]", &x1, &y1, &x2, &y2, col, &transparence);
+	sscanf(str_lin.c_str(), "[LIGNE : %d, %d, %d, %d, %[^,], %d, %d;]", &x1, &y1, &x2, &y2, col, &transparence, &plan);
 	lin->setCoordinates(x1, y1, x2, y2);
 	lin->setColor(convert_color((string)col), transparence);
+	lin->setPlan(plan);
 	return lin;
 }
 //[POINT : X, Y, COULEUR, TRANSPARENCE;]
 Point* convert_point(string str_pt)
 {
-	int x, y, transparence;
+	int x, y, transparence, plan;
 	char col[20];
 	Point *pt = new Point();
-	sscanf(str_pt.c_str(), "[POINT : %d, %d, %[^,], %d;]", &x, &y, col, &transparence);
+	sscanf(str_pt.c_str(), "[POINT : %d, %d, %[^,], %d, %d;]", &x, &y, col, &transparence, &plan);
 	pt->setPosition(x,y);
 	pt->setColor(convert_color((string)col), transparence);
+	pt->setPlan(plan);
 	return pt;
 }
 
@@ -181,3 +185,7 @@ void openfile(string filename, CImage *img)
 	vecfile.close();
 }
 
+int maxplan(int plan1, int plan2)
+{
+	return plan1>plan2?plan1:plan2;
+}

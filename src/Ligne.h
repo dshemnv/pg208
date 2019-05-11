@@ -17,7 +17,8 @@ public:
     void setCoordinates(double x1, double y1, double x2, double y2);
     double getPosX();
     double getPosY();
-
+    void setPlan(int plan);
+    int getPlan();
 };
 
 #endif

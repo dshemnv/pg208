@@ -103,3 +103,13 @@ double Ligne::getPosY()
 {
     return fin->getPosY();
 }
+
+void Ligne::setPlan(int plan)
+{
+    trace->setPlan(plan);
+}
+
+int Ligne::getPlan()
+{
+    return trace->getPlan();
+}

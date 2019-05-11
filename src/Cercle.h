@@ -19,6 +19,8 @@ public:
     void setColor(Color color, int transparence);
     void drawCircle(CImage *img);
     void drawCircles(CImage *img);
+    void setPlan(int plan);
+    int getPlan();
 };
 
 #endif

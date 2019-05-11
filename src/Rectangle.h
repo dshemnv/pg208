@@ -20,6 +20,8 @@ public:
     void drawSide(int coordX, int coordY, CImage *img);
     void drawRectangle(CImage *img);
     void drawRectangles(CImage *img);
+    void setPlan(int plan);
+    int getPlan();
 };
 
 class Carre : public Rectangle

@@ -138,3 +138,14 @@ void Rectangle::drawRectangles(CImage *img)
     }
     
 }
+
+void Rectangle::setPlan(int plan)
+{
+    ligne->setPlan(plan);
+}
+
+
+int Rectangle::getPlan()
+{
+    return ligne->getPlan();
+}

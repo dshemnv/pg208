@@ -32,7 +32,7 @@ Cercle *convert_circle(string str_cir)
 	sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,], %d;]", &x, &y, &r, str, &transparence);
 	c->setPosition(x, y);
 	c->setRadius(r);
-	c->setColor(convert_color((string)str));
+	c->setColor(convert_color((string)str),transparence);
 	return c;
 }
 

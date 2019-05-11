@@ -22,8 +22,7 @@ int main(int argc, char *argv[])
     // Point *pt = new Point();
     // Cercle *circ = new Cercle();
     // Cercle *circ2 = new Cercle();
-    Rectangle *rect = new Rectangle();
-    Carre *squ = new Carre();
+    // Rectangle *rect = new Rectangle();
 
     string filename2 = "Sortie.bmp";
 
@@ -48,17 +47,12 @@ int main(int argc, char *argv[])
     // circ2->drawCircles(img);
 
 
-    squ->setPosition(20,50);
-    squ->setColor(blue, 70);
-    squ->setLengths(50);
-    squ->drawRectangles(img);
+    // rect->setPosition(20,50);
+    // rect->setColor(red, 70);
+    // rect->setLengths(40,20);
+    // rect->drawRectangles(img);
 
-    // rect->setPosition(20,60);
-    // rect->setColor(blue, 100);
-    // rect->setLengths(50,40);
-    // rect->drawRectangle(img);
-
-    // openfile("test.vec",img);
+    openfile("test.vec",img);
 
     
     image->setImage(img);

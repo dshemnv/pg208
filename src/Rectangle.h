@@ -22,4 +22,19 @@ public:
     void drawRectangles(CImage *img);
 };
 
+class Carre : public Rectangle
+{
+private:
+    Ligne *ligne;
+    int largeur;
+    int longeur;
+    int posX;
+    int posY;
+public:
+    Carre(/* args */);
+    ~Carre();
+    void setLengths(int width);
+};
+
+
 #endif

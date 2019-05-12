@@ -13,7 +13,7 @@ using namespace std;
 #include "Ligne.h"
 #include "Point.h"
 #include "Rectangle.h"
-
+#include "Figure.h"
 
 
 void openfile(string filename, CImage *img);
@@ -25,5 +25,5 @@ Cercle* convert_circle(string str_cir, int i);
 Color convert_color(string color);
 bool is_comment(string lines);
 int max_plan(int plan1, int plan2);
-
+// void display_vector();
 #endif

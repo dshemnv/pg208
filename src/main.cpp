@@ -10,6 +10,8 @@ using namespace std;
 #include "vecfiles.h"
 #include "CBitmap.h"
 
+
+
 int main(int argc, char *argv[])
 {
 
@@ -17,17 +19,18 @@ int main(int argc, char *argv[])
     // cout << "(II) + Number of arguments = " << argc << endl;
 
     // cout << "(II) CBitmap object creation" << endl;
-    // CBitmap *image = new CBitmap();
-    // // Ligne *line = new Ligne();
-    // // Point *pt = new Point();
-    // // Cercle *circ = new Cercle();
-    // // Cercle *circ2 = new Cercle();
-    // // Rectangle *rect = new Rectangle();
+    CBitmap *image = new CBitmap();
+    Ligne *line = new Ligne();
+    Point *pt = new Point();
+    Cercle *circ = new Cercle();
+    Cercle *circ2 = new Cercle();
+    Rectangle *rect = new Rectangle();
+    vector<Forme *> Vec_forme;
 
-    // string filename2 = "Sortie.bmp";
+    string filename2 = "Sortie.bmp";
 
-    // cout << "(II) CImage pointer extraction" << endl;
-    // CImage *img = new CImage(200, 200);
+    cout << "(II) CImage pointer extraction" << endl;
+    CImage *img = new CImage(200, 200);
 
     // // line->setColor(olive, 30);
     // // line->setCoordinates(100,10,20,60);
@@ -36,9 +39,9 @@ int main(int argc, char *argv[])
     // // pt->setColor(red, 10);
     // // pt->drawPoint(img);
 
-    // // circ->setPosition(150,30);
-    // // circ->setColor(blue, 100);
-    // // circ->setRadius(20);
+    circ->setPosition(150,30);
+    circ->setColor(blue, 100);
+    circ->setRadius(20);
     // // circ->drawCircle(img);
 
     // // circ2->setPosition(150,30);
@@ -52,11 +55,14 @@ int main(int argc, char *argv[])
     // // rect->setLengths(40,20);
     // // rect->drawRectangles(img);
 
-    // openfile("test.vec",img);
+    openfile("test.vec",img);
 
     
-    // image->setImage(img);
-    // cout << "(II) CBitmap image saving" << endl;
-    // image->SaveBMP(filename2);
+    image->setImage(img);
+    cout << "(II) CBitmap image saving" << endl;
+    image->SaveBMP(filename2);
+
+    Vec_forme.push_back(circ);
+    cout<<Vec_forme.size()<<endl;
     return 1;
 }

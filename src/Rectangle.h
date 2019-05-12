@@ -1,9 +1,10 @@
 #include "Ligne.h"
+#include "Figure.h"
 
 #ifndef RECTANGLE_H_
 #define RECTANGLE_H_
 
-class Rectangle
+class Rectangle : public Forme
 {
 private:
     Ligne *ligne;
@@ -20,8 +21,6 @@ public:
     void drawSide(int coordX, int coordY, CImage *img);
     void drawRectangle(CImage *img);
     void drawRectangles(CImage *img);
-    void setPlan(int plan);
-    int getPlan();
 };
 
 class Carre : public Rectangle

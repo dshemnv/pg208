@@ -65,12 +65,3 @@ void Cercle::drawCircles(CImage *img)
     }
 }
 
-void Cercle::setPlan(int plan)
-{
-    trace->setPlan(plan);
-}
-
-int Cercle::getPlan()
-{
-    return trace->getPlan();
-}

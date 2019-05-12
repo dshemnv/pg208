@@ -11,8 +11,12 @@
 
 ##[CERCLE : 150, 30, 20, red, 0;]
 
-[LIGNE : 100, 10, 20, 60, olive, 30, 2;]
-[POINT : 30, 40, red, 10, 3;]
-[CERCLES : 150, 30, 20, blue, 0, 3;]
-[CERCLES : 150, 30, 18, red, 70, 2;]
 [RECTANGLES : 20, 50, 40, 20, red, 70, 1;]
+
+[CERCLES : 150, 30, 20, red, 0, 1;]
+
+[CERCLES : 150, 30, 18, red, 70, 2;]
+
+[LIGNE : 100, 10, 20, 60, olive, 30, 2;]
+
+[POINT : 30, 40, red, 10, 3;]

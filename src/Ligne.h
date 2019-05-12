@@ -1,9 +1,10 @@
 #include "Point.h"
+#include "Figure.h"
 
 #ifndef LIGNE_H_
 #define LIGNE_H_
 
-class Ligne
+class Ligne : public Forme
 {
 private:
     Point *origine;
@@ -17,8 +18,6 @@ public:
     void setCoordinates(double x1, double y1, double x2, double y2);
     double getPosX();
     double getPosY();
-    void setPlan(int plan);
-    int getPlan();
 };
 
 #endif

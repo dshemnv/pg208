@@ -42,7 +42,6 @@ Cercle* convert_circle(string str_cir, int i)
 	c->setRadius(r);
 	c->setColor(convert_color((string)str),transparence);
 	c->setPlan(plan);
-	c->setType(Cer);
 	return c;
 }
 
@@ -64,7 +63,6 @@ Rectangle* convert_rectangle(string str_rec,int i)
 	r->setLengths(L,h);
 	r->setColor(convert_color((string)col), transparence);
 	r->setPlan(plan);
-	r->setType(Rec);
 	return r;
 }
 
@@ -86,7 +84,6 @@ Carre* convert_square(string str_sqr, int i)
 	ca->setLengths(c);
 	ca->setColor(convert_color((string)col), transparence);
 	ca->setPlan(plan);
-	ca->setType(Car);
 	return ca;
 }
 
@@ -100,7 +97,6 @@ Ligne* convert_line(string str_lin)
 	lin->setCoordinates(x1, y1, x2, y2);
 	lin->setColor(convert_color((string)col), transparence);
 	lin->setPlan(plan);
-	lin->setType(Lin);
 	return lin;
 }
 //[POINT : X, Y, COULEUR, TRANSPARENCE;]
@@ -113,13 +109,11 @@ Point* convert_point(string str_pt)
 	pt->setPosition(x,y);
 	pt->setColor(convert_color((string)col), transparence);
 	pt->setPlan(plan);
-	pt->setType(Pt);
 	return pt;
 }
 
-void openfile(string filename, CImage *img)
+void openfile(string filename, CImage *img, CImage *plan)
 {
-	vector<Forme *> Vec_forme;
 	Cercle *c = new Cercle();
 	Carre *ca = new Carre();
 	Rectangle *rec = new Rectangle();
@@ -141,22 +135,16 @@ void openfile(string filename, CImage *img)
 			{				
 				if ((lines.find("CERCLES") != lines.npos))
 				{					
-					c = convert_circle(lines,1);
-					Vec_forme.push_back(c);
-					cout<<Vec_forme.size()<<endl;				
+					c = convert_circle(lines,1);				
 				}
 				else
 				{
 					c = convert_circle(lines,0);
-					Vec_forme.push_back(c);
-					cout<<Vec_forme.size()<<endl;
 				}
 			}
 			else if ((lines.find("LIGNE") != lines.npos))
 			{
 				lin = convert_line(lines);
-				Vec_forme.push_back(lin);
-				cout<<Vec_forme.size()<<endl;
 				
 			}
 			else if ((lines.find("RECTANGLE") != lines.npos))
@@ -164,40 +152,30 @@ void openfile(string filename, CImage *img)
 				if ((lines.find("RECTANGLES") != lines.npos))
 				{
 					rec = convert_rectangle(lines,1);
-					Vec_forme.push_back(rec);
-					cout<<Vec_forme.size()<<endl;
 				}
 				else
 				{
 					rec = convert_rectangle(lines,0);
-					Vec_forme.push_back(rec);
-					cout<<Vec_forme.size()<<endl;
+
 				}
 			}
 			else if ((lines.find("POINT") != lines.npos))
 			{
 				pt = convert_point(lines);
-				Vec_forme.push_back(pt);
-				cout<<Vec_forme.size()<<endl;
 			}
 			else if ((lines.find("CARRE") != lines.npos))
 			{
 				if ((lines.find("CARRES") != lines.npos))
 				{
 					ca = convert_square(lines,1);
-					Vec_forme.push_back(ca);
-					cout<<Vec_forme.size()<<endl;
 				}
 				else
 				{
 					ca = convert_square(lines,0);
-					Vec_forme.push_back(ca);
-					cout<<Vec_forme.size()<<endl;
 				}
 			}
 		}
 	}
-	//cout<<Vec_forme.size()<<endl;
 	vecfile.close();
 }
 

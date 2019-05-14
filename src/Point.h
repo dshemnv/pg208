@@ -3,18 +3,18 @@
 #include "CPixel.h"
 #include "CImage.h"
 #include <vector>
-#include "Figure.h"
 
 enum Color { red, green, blue, cyan, magenta, olive, crimson, lightcoral};
 const vector<string> Col_str={"red", "green", "blue", "cyan", "magenta", "olive", "crimson", "lightcoral"};
 
-class Point : public Forme
+class Point
 {
 private:
    int posX;
    int posY;
    CPixel *pixel;
    int transparence;
+   int plan;
 public:
     Point(int X, int Y);
     Point();
@@ -26,5 +26,7 @@ public:
     void drawPoint(CImage *img);
     double getPosX();
     double getPosY();
+    void setPlan(int p);
+    int getPlan();
 };
 #endif

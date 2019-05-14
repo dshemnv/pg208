@@ -91,3 +91,12 @@ double Point::getPosY()
     return (double)posY;
 }
 
+void Point::setPlan(int p)
+{
+    plan = p;
+}
+
+int Point::getPlan()
+{
+    return plan;
+}

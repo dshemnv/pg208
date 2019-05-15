@@ -16,11 +16,11 @@ using namespace std;
 
 
 void openfile(string filename, CImage *img, CImage* plan);
-Point* convert_point(string str_pt); // i = 0, pas plein, i = 1 plein;
-Ligne* convert_line(string str_lin);
-Carre* convert_square(string str_sqr, int i);
-Rectangle* convert_rectangle(string str_rec, int i);
-Cercle* convert_circle(string str_cir, int i);
+Point* convert_point(string str_pt, int scale); // i = 0, pas plein, i = 1 plein;
+Ligne* convert_line(string str_lin, int scale);
+Carre* convert_square(string str_sqr, int i, int scale);
+Rectangle* convert_rectangle(string str_rec, int i, int scale);
+Cercle* convert_circle(string str_cir, int i, int scale);
 Color convert_color(string color);
 bool is_comment(string lines);
 

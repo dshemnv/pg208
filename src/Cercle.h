@@ -17,8 +17,8 @@ public:
     void setPosition(int x, int y);
     void setRadius(int r);
     void setColor(Color color, int transparence);
-    void drawCircle(CImage *img);
-    void drawCircles(CImage *img);
+    void drawCircle(CImage *img, CImage *plan);
+    void drawCircles(CImage *img, CImage *plan);
     void setPlan(int plan);
     int getPlan();
 };

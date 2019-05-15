@@ -23,7 +23,7 @@ void Ligne::setColor(Color color, int transparence)
     trace->setColor(color, transparence);
 }
 
-void Ligne::drawLigne(CImage *img)
+void Ligne::drawLigne(CImage *img, CImage *plan)
 {
     double xo = origine->getPosX();
     double yo = origine->getPosY();
@@ -40,7 +40,7 @@ void Ligne::drawLigne(CImage *img)
             while (trace->getPosX() > xf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img);
+                trace->drawPoint(img,plan);
                 xo--;
             }
         }
@@ -49,7 +49,7 @@ void Ligne::drawLigne(CImage *img)
             while (trace->getPosX() < xf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img);
+                trace->drawPoint(img,plan);
                 xo++;
             }
         }
@@ -61,7 +61,7 @@ void Ligne::drawLigne(CImage *img)
             while (trace->getPosY() > yf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img);
+                trace->drawPoint(img,plan);
                 yo--;
             }
         }
@@ -70,7 +70,7 @@ void Ligne::drawLigne(CImage *img)
             while (trace->getPosY() < yf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img);
+                trace->drawPoint(img,plan);
                 yo++;
             }
         }
@@ -80,7 +80,7 @@ void Ligne::drawLigne(CImage *img)
         while (trace->getPosX() != xf && trace->getPosY() != yf)
         {
             trace->setPosition(xo, yo);
-            trace->drawPoint(img);
+            trace->drawPoint(img,plan);
             xo++;
             if (coef < 0)
             {

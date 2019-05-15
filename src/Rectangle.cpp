@@ -44,7 +44,7 @@ void Rectangle::setColor(Color color, int transparence)
     ligne->setColor(color, transparence);
 }
 
-void Rectangle::drawSide(int coordX, int coordY, CImage *img)
+void Rectangle::drawSide(int coordX, int coordY, CImage *img, CImage *plan)
 {
     double Xo = ligne->getPosX();
     double Yo = ligne->getPosY();
@@ -73,12 +73,12 @@ void Rectangle::drawSide(int coordX, int coordY, CImage *img)
     default:
         break;
     }
-    ligne->drawLigne(img);
+    ligne->drawLigne(img,plan);
 }
 
-void Rectangle::drawRectangle(CImage *img)
+void Rectangle::drawRectangle(CImage *img, CImage *plan)
 {
-    drawSide(0, 0, img);
+    drawSide(0, 0, img, plan);
 
     /*
 
@@ -89,7 +89,7 @@ void Rectangle::drawRectangle(CImage *img)
     */
 
 
-    drawSide(0, 1, img);
+    drawSide(0, 1, img, plan);
 
     /*
 
@@ -99,7 +99,7 @@ void Rectangle::drawRectangle(CImage *img)
 
     */
 
-   drawSide(1, 1, img);
+   drawSide(1, 1, img, plan);
 
     /*
 
@@ -109,7 +109,7 @@ void Rectangle::drawRectangle(CImage *img)
 
     */
 
-   drawSide(1, 0, img);
+   drawSide(1, 0, img, plan);
 
    /*
 
@@ -121,7 +121,7 @@ void Rectangle::drawRectangle(CImage *img)
 
 }
 
-void Rectangle::drawRectangles(CImage *img)
+void Rectangle::drawRectangles(CImage *img, CImage *plan)
 {
     // while (longeur && largeur != 0)
     // {
@@ -130,11 +130,11 @@ void Rectangle::drawRectangles(CImage *img)
     //     drawRectangle(img);
     // }
     
-    drawRectangle(img);
+    drawRectangle(img, plan);
     for (int i = 1; i < largeur; i++)
     {
         ligne->setCoordinates((double)posX + 1, (double)posY + i, (double)posX + longeur - 1, (double)posY + i);
-        ligne->drawLigne(img);
+        ligne->drawLigne(img,plan);
     }
     
 }

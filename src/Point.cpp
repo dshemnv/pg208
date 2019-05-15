@@ -45,11 +45,19 @@ void Point::setColor(Color color, int transparence)
     case lightcoral:
         pixel->RGB(240,128,128);
         break;
+    
+    case vertpomme:
+        pixel->RGB(141,182,0);
+        break;
 
+    case azur:
+        pixel->RGB(0,127,255);
+        break;
+        
     default:
         break;
     }
-
+//"azur","gris", "orange", "noir", "indigo", "canard", "bordeaux", "jaune", "sang de boeuf","aigue-marine","violet"};
     setTransparency(transparence);   
     
 }
@@ -75,10 +83,15 @@ CPixel* Point::drawTransparency(CPixel *oldp)
     return tr_pix;
 }
 
-void Point::drawPoint(CImage *img)
+void Point::drawPoint(CImage *img, CImage *plan)
 {
+    CPixel *pl = plan->getPixel(posX,posY);
+    if( this->getPlan() > pl->Red() )
+    {
+    pl->Red(pl->Red()+1);
     CPixel *pi = img->getPixel(posX, posY);
     pi->RGB(drawTransparency(pi)->Red(), drawTransparency(pi)->Green(), drawTransparency(pi)->Blue());
+    }
 }
 
 double Point::getPosX()

@@ -25,7 +25,7 @@ void Cercle::setColor(Color color, int transparence)
     trace->setColor(color, transparence);
 }
 
-void Cercle::drawCircle(CImage *img)
+void Cercle::drawCircle(CImage *img, CImage *plan)
 {
     double xo = centre->getPosX();
     double yo = centre->getPosY();
@@ -39,13 +39,13 @@ void Cercle::drawCircle(CImage *img)
             if (R2 / pow(R, 2) >= 0.95 && R2 / pow(R, 2) <= 1.05)
             {
                 trace->setPosition(x, y);
-                trace->drawPoint(img);
+                trace->drawPoint(img,plan);
             }
         }
     }
 }
 
-void Cercle::drawCircles(CImage *img)
+void Cercle::drawCircles(CImage *img, CImage *plan)
 {
     double xo = centre->getPosX();
     double yo = centre->getPosY();
@@ -59,7 +59,7 @@ void Cercle::drawCircles(CImage *img)
             if (R2 / pow(R, 2) <= 1.02)
             {
                 trace->setPosition(x, y);
-                trace->drawPoint(img);
+                trace->drawPoint(img, plan);
             }
         }
     }

@@ -56,7 +56,7 @@ void Cercle::drawCircles(CImage *img, CImage *plan)
         for (double y = (yo - R); y < yo + R + 1; y++)
         {
             double R2 = pow((x - xo), 2) + pow((y - yo), 2);
-            if (R2 / pow(R, 2) <= 1.05)
+            if (R2 / pow(R, 2) <= 1)
             {
                 trace->setPosition(x, y);
                 trace->drawPoint(img, plan);

@@ -4,6 +4,7 @@
 #include <vector>
 #include <stdio.h>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 #ifndef VECFILES_H_

@@ -17,6 +17,7 @@ Point::~Point()
 
 void Point::setColor(Color color, int transparence)
 {
+    color = this->color;
     switch (color)
     {
     case blue:

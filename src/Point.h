@@ -15,6 +15,7 @@ private:
    CPixel *pixel;
    int transparence;
    int plan;
+   Color color;
 public:
     Point(int X, int Y);
     Point();

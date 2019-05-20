@@ -27,88 +27,98 @@ bool is_comment(string lines)
 //[CERCLE : X, Y, RAYON, COULEUR, TRANSPARENCE;]
 Cercle* convert_circle(string str_cir, int i, int scale)
 {
-	int x, y, r, transparence, plan;
+	int x, y, r, transparence, plan_i;
 	char str[20];
+	char plan[5];
 	Cercle *c = new Cercle();
 	if(i == 0)
 	{
-		sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &r, str, &plan, &transparence);
+		sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,],%[^,], %d ;]", &x, &y, &r, str, plan, &transparence);
 	}
 	else
 	{
-		sscanf(str_cir.c_str(), "[CERCLES : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &r, str, &plan, &transparence);
+		sscanf(str_cir.c_str(), "[CERCLES : %d, %d, %d, %[^,],%[^,], %d ;]", &x, &y, &r, str, plan, &transparence);
 	}
 	c->setPosition(scale*x, scale*y);
 	c->setRadius(scale*r);
 	c->setColor(convert_color((string)str),transparence);
-	c->setPlan(plan);
+	plan_i = atoi(plan);
+	c->setPlan(plan_i);
 	return c;
 }
 
 //[RECTANGLE : X, Y, LONGUEUR, HAUTEUR, COULEUR, TRANSPARENCE;]
 Rectangle* convert_rectangle(string str_rec, int i, int scale)
 {
-	int x, y, L, h, transparence, plan;
+	int x, y, L, h, transparence, plan_i;
 	char col[20];
+	char plan[5];
 	Rectangle *r = new Rectangle();
 	if(i == 0)
 	{
-		sscanf(str_rec.c_str(), "[RECTANGLE : %d, %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &L, &h, col, &plan, &transparence);
+		sscanf(str_rec.c_str(), "[RECTANGLE : %d, %d, %d, %d, %[^,],%[^,], %d ;]", &x, &y, &L, &h, col, plan, &transparence);
 	}
 	else
 	{
-		sscanf(str_rec.c_str(), "[RECTANGLES : %d, %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &L, &h, col, &plan, &transparence);
+		sscanf(str_rec.c_str(), "[RECTANGLES : %d, %d, %d, %d, %[^,],%[^,], %d ;]", &x, &y, &L, &h, col, plan, &transparence);
 	}	
 	r->setPosition(scale*x, scale*y);
 	r->setLengths(scale*L,scale*h);
 	r->setColor(convert_color((string)col), transparence);
-	r->setPlan(plan);
+	plan_i = atoi(plan);
+	r->setPlan(plan_i);
 	return r;
 }
 
 //[CARRE : X, Y, LONGUEUR, HAUTEUR, COULEUR, TRANSPARENCE;]
 Carre* convert_square(string str_sqr, int i, int scale)
 {
-	int x, y, c, transparence, plan;
+	int x, y, c, transparence, plan_i;
 	char col[20];
+	char plan[5];
 	Carre *ca = new Carre();
 	if(i == 0)
 	{
-		sscanf(str_sqr.c_str(), "[CARRE : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &c, col, &plan, &transparence);
+		sscanf(str_sqr.c_str(), "[CARRE : %d, %d, %d, %[^,],%[^,], %d ;]", &x, &y, &c, col, plan, &transparence);
 	}
 	else
 	{
-		sscanf(str_sqr.c_str(), "[CARRES : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &c, col, &plan, &transparence);
+		sscanf(str_sqr.c_str(), "[CARRES : %d, %d, %d, %[^,],%[^,], %d ;]", &x, &y, &c, col, plan, &transparence);
 	}	
 	ca->setPosition(scale*x, scale*y);
 	ca->setLengths(scale*c);
 	ca->setColor(convert_color((string)col), transparence);
-	ca->setPlan(plan);
+	plan_i = atoi(plan);
+	ca->setPlan(plan_i);
 	return ca;
 }
 
 //[LIGNE : X1, Y1, X2, Y2, COULEUR, TRANSPARENCE;]
 Ligne* convert_line(string str_lin, int scale)
 {
-	int x1, y1, x2, y2, transparence, plan;
+	int x1, y1, x2, y2, transparence, plan_i;
+	char plan[5];
 	char col[20];
 	Ligne *lin = new Ligne();
-	sscanf(str_lin.c_str(), "[LIGNE : %d, %d, %d, %d, %[^,], %d, %d ;]", &x1, &y1, &x2, &y2, col, &plan, &transparence);
+	sscanf(str_lin.c_str(), "[LIGNE : %d, %d, %d, %d, %[^,],%[^,], %d ;]", &x1, &y1, &x2, &y2, col, plan, &transparence);
 	lin->setCoordinates(scale*x1, scale*y1, scale*x2, scale*y2);
 	lin->setColor(convert_color((string)col), transparence);
-	lin->setPlan(plan);
+	plan_i = atoi(plan);
+	lin->setPlan(plan_i);
 	return lin;
 }
 //[POINT : X, Y, COULEUR, TRANSPARENCE;]
 Point* convert_point(string str_pt, int scale)
 {
-	int x, y, transparence, plan;
+	int x, y, transparence, plan_i;
 	char col[20];
+	char plan[5];
 	Point *pt = new Point();
-	sscanf(str_pt.c_str(), "[POINT : %d, %d, %[^,], %d, %d ;]", &x, &y, col, &plan, &transparence);
+	sscanf(str_pt.c_str(), "[POINT : %d, %d, %[^,],%[^,], %d ;]", &x, &y, col, plan, &transparence);
 	pt->setPosition(scale*x,scale*y);
 	pt->setColor(convert_color((string)col), transparence);
-	pt->setPlan(plan);
+	plan_i = atoi(plan);
+	pt->setPlan(plan_i);
 	return pt;
 }
 
@@ -200,6 +210,8 @@ int* max_lengths(string filename, int scale)
 		}
 	}
 	vecfile.close();
+	lengths[0]++;
+	lengths[1]++;
 	return lengths;
 }
 

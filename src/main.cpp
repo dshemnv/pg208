@@ -33,8 +33,6 @@ int main(int argc, char *argv[])
 
     cout << "(II) CImage pointer extraction" << endl;
     int* tab = max_lengths(input_file, scale);
-    tab[0] +=2;
-    tab[1] +=2;
     CImage *img = new CImage(tab[1], tab[0]);
     CImage *plan = new CImage(tab[1], tab[0]);
 

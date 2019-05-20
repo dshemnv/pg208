@@ -12,7 +12,7 @@ private:
     int posX;
     int posY;
 public:
-    Rectangle(/* args */);
+    Rectangle();
     ~Rectangle();
     void setPosition(int x, int y);
     void setLengths(int length, int width);
@@ -37,7 +37,7 @@ private:
     int posX;
     int posY;
 public:
-    Carre(/* args */);
+    Carre();
     ~Carre();
     void setLengths(int width);
 };

@@ -40,7 +40,7 @@ void Ligne::drawLigne(CImage *img, CImage *plan)
             while (trace->getPosX() > xf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img,plan);
+                trace->drawPoint(img, plan);
                 xo--;
             }
         }
@@ -49,7 +49,7 @@ void Ligne::drawLigne(CImage *img, CImage *plan)
             while (trace->getPosX() < xf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img,plan);
+                trace->drawPoint(img, plan);
                 xo++;
             }
         }
@@ -61,7 +61,7 @@ void Ligne::drawLigne(CImage *img, CImage *plan)
             while (trace->getPosY() > yf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img,plan);
+                trace->drawPoint(img, plan);
                 yo--;
             }
         }
@@ -70,7 +70,7 @@ void Ligne::drawLigne(CImage *img, CImage *plan)
             while (trace->getPosY() < yf)
             {
                 trace->setPosition(xo, yo);
-                trace->drawPoint(img,plan);
+                trace->drawPoint(img, plan);
                 yo++;
             }
         }
@@ -80,17 +80,9 @@ void Ligne::drawLigne(CImage *img, CImage *plan)
         while (trace->getPosX() != xf && trace->getPosY() != yf)
         {
             trace->setPosition(xo, yo);
-            trace->drawPoint(img,plan);
+            trace->drawPoint(img, plan);
             xo++;
-            yo+=coef;
-            // if (coef < 0)
-            // {
-            //     yo -= coef;
-            // }
-            // else
-            // {
-            //     yo += coef;
-            // }
+            yo += coef;
         }
     }
 }

@@ -9,6 +9,7 @@ private:
     Point *origine;
     Point *fin;
     Point *trace;
+
 public:
     Ligne();
     ~Ligne();

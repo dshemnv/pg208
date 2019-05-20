@@ -9,7 +9,7 @@ Rectangle::~Rectangle()
 {
 }
 
-Carre::Carre(/* args */)
+Carre::Carre()
 {
 }
 
@@ -36,7 +36,7 @@ void Rectangle::setLengths(int length, int width)
 
 void Carre::setLengths(int width)
 {
-    Rectangle::setLengths(width,width);
+    Rectangle::setLengths(width, width);
 }
 
 void Rectangle::setColor(Color color, int transparence)
@@ -54,7 +54,7 @@ void Rectangle::drawSide(int coordX, int coordY, CImage *img, CImage *plan)
     switch (i)
     {
     case 0:
-        ligne->setCoordinates(Xo, Yo , Xo, Yo + (double)largeur - 1);
+        ligne->setCoordinates(Xo, Yo, Xo, Yo + (double)largeur - 1);
         break;
     case 1:
         if (coordY)
@@ -68,12 +68,12 @@ void Rectangle::drawSide(int coordX, int coordY, CImage *img, CImage *plan)
             break;
         }
     case 2:
-        ligne->setCoordinates(Xo + 1 , Yo, Xo + 1 , Yo - (double)largeur + 1);
+        ligne->setCoordinates(Xo + 1, Yo, Xo + 1, Yo - (double)largeur + 1);
         break;
     default:
         break;
     }
-    ligne->drawLigne(img,plan);
+    ligne->drawLigne(img, plan);
 }
 
 void Rectangle::drawRectangle(CImage *img, CImage *plan)
@@ -88,7 +88,6 @@ void Rectangle::drawRectangle(CImage *img, CImage *plan)
 
     */
 
-
     drawSide(0, 1, img, plan);
 
     /*
@@ -99,7 +98,7 @@ void Rectangle::drawRectangle(CImage *img, CImage *plan)
 
     */
 
-   drawSide(1, 1, img, plan);
+    drawSide(1, 1, img, plan);
 
     /*
 
@@ -109,34 +108,26 @@ void Rectangle::drawRectangle(CImage *img, CImage *plan)
 
     */
 
-   drawSide(1, 0, img, plan);
+    drawSide(1, 0, img, plan);
 
-   /*
+    /*
 
     * * * *
     *     *
     * * * *
 
     */
-
 }
 
 void Rectangle::drawRectangles(CImage *img, CImage *plan)
 {
-    // while (longeur && largeur != 0)
-    // {
-    //     longeur--;
-    //     largeur--;
-    //     drawRectangle(img);
-    // }
-    
+
     drawRectangle(img, plan);
     for (int i = 1; i < largeur; i++)
     {
         ligne->setCoordinates((double)posX + 1, (double)posY + i, (double)posX + longeur - 1, (double)posY + i);
-        ligne->drawLigne(img,plan);
+        ligne->drawLigne(img, plan);
     }
-    
 }
 
 void Rectangle::setPlan(int p)

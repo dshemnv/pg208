@@ -1,7 +1,6 @@
 #include "Point.h"
 #include <math.h>
 
-
 #ifndef CERCLE_H_
 #define CERCLE_H_
 
@@ -11,6 +10,7 @@ private:
     Point *trace;
     Point *centre;
     int rayon;
+
 public:
     Cercle();
     ~Cercle();

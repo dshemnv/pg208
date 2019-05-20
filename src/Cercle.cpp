@@ -39,7 +39,7 @@ void Cercle::drawCircle(CImage *img, CImage *plan)
             if (R2 / pow(R, 2) >= 0.95 && R2 / pow(R, 2) <= 1.1)
             {
                 trace->setPosition(x, y);
-                trace->drawPoint(img,plan);
+                trace->drawPoint(img, plan);
             }
         }
     }

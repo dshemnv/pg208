@@ -32,11 +32,11 @@ Cercle* convert_circle(string str_cir, int i, int scale)
 	Cercle *c = new Cercle();
 	if(i == 0)
 	{
-		sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &r, str, &transparence, &plan);
+		sscanf(str_cir.c_str(), "[CERCLE : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &r, str, &plan, &transparence);
 	}
 	else
 	{
-		sscanf(str_cir.c_str(), "[CERCLES : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &r, str, &transparence, &plan);
+		sscanf(str_cir.c_str(), "[CERCLES : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &r, str, &plan, &transparence);
 	}
 	c->setPosition(scale*x, scale*y);
 	c->setRadius(scale*r);
@@ -53,11 +53,11 @@ Rectangle* convert_rectangle(string str_rec, int i, int scale)
 	Rectangle *r = new Rectangle();
 	if(i == 0)
 	{
-		sscanf(str_rec.c_str(), "[RECTANGLE : %d, %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &L, &h, col, &transparence, &plan);
+		sscanf(str_rec.c_str(), "[RECTANGLE : %d, %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &L, &h, col, &plan, &transparence);
 	}
 	else
 	{
-		sscanf(str_rec.c_str(), "[RECTANGLES : %d, %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &L, &h, col, &transparence, &plan);
+		sscanf(str_rec.c_str(), "[RECTANGLES : %d, %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &L, &h, col, &plan, &transparence);
 	}	
 	r->setPosition(scale*x, scale*y);
 	r->setLengths(scale*L,scale*h);
@@ -74,11 +74,11 @@ Carre* convert_square(string str_sqr, int i, int scale)
 	Carre *ca = new Carre();
 	if(i == 0)
 	{
-		sscanf(str_sqr.c_str(), "[CARRE : %d, %d, %d, %[^,], %d, %d;]", &x, &y, &c, col, &transparence, &plan);
+		sscanf(str_sqr.c_str(), "[CARRE : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &c, col, &plan, &transparence);
 	}
 	else
 	{
-		sscanf(str_sqr.c_str(), "[CARRES : %d, %d, %d, %[^,], %d, %d;]", &x, &y, &c, col, &transparence, &plan);
+		sscanf(str_sqr.c_str(), "[CARRES : %d, %d, %d, %[^,], %d, %d ;]", &x, &y, &c, col, &plan, &transparence);
 	}	
 	ca->setPosition(scale*x, scale*y);
 	ca->setLengths(scale*c);
@@ -93,7 +93,7 @@ Ligne* convert_line(string str_lin, int scale)
 	int x1, y1, x2, y2, transparence, plan;
 	char col[20];
 	Ligne *lin = new Ligne();
-	sscanf(str_lin.c_str(), "[LIGNE : %d, %d, %d, %d, %[^,], %d, %d;]", &x1, &y1, &x2, &y2, col, &transparence, &plan);
+	sscanf(str_lin.c_str(), "[LIGNE : %d, %d, %d, %d, %[^,], %d, %d ;]", &x1, &y1, &x2, &y2, col, &plan, &transparence);
 	lin->setCoordinates(scale*x1, scale*y1, scale*x2, scale*y2);
 	lin->setColor(convert_color((string)col), transparence);
 	lin->setPlan(plan);
@@ -105,14 +105,105 @@ Point* convert_point(string str_pt, int scale)
 	int x, y, transparence, plan;
 	char col[20];
 	Point *pt = new Point();
-	sscanf(str_pt.c_str(), "[POINT : %d, %d, %[^,], %d, %d;]", &x, &y, col, &transparence, &plan);
+	sscanf(str_pt.c_str(), "[POINT : %d, %d, %[^,], %d, %d ;]", &x, &y, col, &plan, &transparence);
 	pt->setPosition(scale*x,scale*y);
 	pt->setColor(convert_color((string)col), transparence);
 	pt->setPlan(plan);
 	return pt;
 }
 
-void openfile(string filename, CImage *img, CImage *plan)
+int* max_lengths(string filename, int scale)
+{
+	Cercle *c = new Cercle();
+	Carre *ca = new Carre();
+	Rectangle *rec = new Rectangle();
+	Ligne *lin = new Ligne();
+	Point *pt = new Point();
+	ifstream vecfile;
+	string lines;
+	int *lengths = new int[2];
+	
+	vecfile.open(filename.c_str(), std::ifstream::in);
+	if (!vecfile.is_open())
+	{
+		cout << "Not open" << endl;
+	}
+	while (!vecfile.eof())
+	{
+		getline(vecfile, lines);
+		if (!is_comment(lines))
+		{
+			if ((lines.find("CERCLE") != lines.npos))
+			{				
+				if ((lines.find("CERCLES") != lines.npos))
+				{					
+					c = convert_circle(lines,1,scale);
+					lengths[1]=(c->getPosY()+c->getRadius() > lengths[1])?c->getPosY()+c->getRadius():lengths[1];
+					lengths[0]=(c->getPosX()+c->getRadius() > lengths[0])?c->getPosX()+c->getRadius():lengths[0];
+				}
+				else
+				{
+					c = convert_circle(lines,0,scale);					
+					lengths[1]=(c->getPosY()+c->getRadius() > lengths[1])?c->getPosY()+c->getRadius():lengths[1];
+					lengths[0]=(c->getPosX()+c->getRadius() > lengths[0])?c->getPosX()+c->getRadius():lengths[0];
+				}
+			}
+			else if ((lines.find("LIGNE") != lines.npos))
+			{
+				lin = convert_line(lines,scale);
+				if( (int)lin->getPosY() > lin->getPosYo() )
+				{
+					lengths[1]=((int)lin->getPosY() - lin->getPosYo() > lengths[1])?(int)lin->getPosY():lengths[1];
+				}
+				if( (int)lin->getPosX() > lin->getPosXo() )
+				{
+					lengths[0]=((int)lin->getPosX() - lin->getPosXo() > lengths[0])?(int)lin->getPosY():lengths[0];
+				}
+				
+			}
+			else if ((lines.find("RECTANGLE") != lines.npos))
+			{
+				if ((lines.find("RECTANGLES") != lines.npos))
+				{
+					rec = convert_rectangle(lines,1,scale);
+					lengths[1]=(rec->getPosY()+rec->getWidth() > lengths[1])?rec->getPosY()+rec->getWidth():lengths[1];
+					lengths[0]=(c->getPosX()+rec->getLength() > lengths[0])?rec->getPosX()+rec->getLength():lengths[0];
+				}
+				else
+				{
+					rec = convert_rectangle(lines,0,scale);
+					lengths[1]=(rec->getPosY()+rec->getWidth() > lengths[1])?rec->getPosY()+rec->getWidth():lengths[1];
+					lengths[0]=(c->getPosX()+rec->getLength() > lengths[0])?rec->getPosX()+rec->getLength():lengths[0];
+				}
+			}
+			else if ((lines.find("POINT") != lines.npos))
+			{
+				pt = convert_point(lines,scale);
+				lengths[1]=(pt->getPosY() > lengths[1])?pt->getPosY():lengths[1];
+				lengths[0]=(pt->getPosX() > lengths[0])?pt->getPosX():lengths[0];
+			}
+			else if ((lines.find("CARRE") != lines.npos))
+			{
+				if ((lines.find("CARRES") != lines.npos))
+				{
+					ca = convert_square(lines,1,scale);
+					lengths[1]=(rec->getPosY()+rec->getWidth() > lengths[1])?rec->getPosY()+rec->getWidth():lengths[1];
+					lengths[0]=(c->getPosX()+rec->getLength() > lengths[0])?rec->getPosX()+rec->getLength():lengths[0];
+				}
+				else
+				{
+					ca = convert_square(lines,0,scale);
+					lengths[1]=(rec->getPosY()+rec->getWidth() > lengths[1])?rec->getPosY()+rec->getWidth():lengths[1];
+					lengths[0]=(c->getPosX()+rec->getLength() > lengths[0])?rec->getPosX()+rec->getLength():lengths[0];
+				}
+			}
+		}
+	}
+	vecfile.close();
+	return lengths;
+}
+
+void openfile(string filename, CImage *img, CImage *plan, int scale)
 {
 	Cercle *c = new Cercle();
 	Carre *ca = new Carre();
@@ -135,18 +226,18 @@ void openfile(string filename, CImage *img, CImage *plan)
 			{				
 				if ((lines.find("CERCLES") != lines.npos))
 				{					
-					c = convert_circle(lines,1);
+					c = convert_circle(lines,1,scale);
 					c->drawCircles(img,plan);			
 				}
 				else
 				{
-					c = convert_circle(lines,0);
+					c = convert_circle(lines,0,scale);
 					c->drawCircle(img,plan);
 				}
 			}
 			else if ((lines.find("LIGNE") != lines.npos))
 			{
-				lin = convert_line(lines);
+				lin = convert_line(lines,scale);
 				lin->drawLigne(img,plan);
 				
 			}
@@ -154,31 +245,31 @@ void openfile(string filename, CImage *img, CImage *plan)
 			{
 				if ((lines.find("RECTANGLES") != lines.npos))
 				{
-					rec = convert_rectangle(lines,1);
+					rec = convert_rectangle(lines,1,scale);
 					rec->drawRectangles(img,plan);
 				}
 				else
 				{
-					rec = convert_rectangle(lines,0);
+					rec = convert_rectangle(lines,0,scale);
 					rec->drawRectangle(img,plan);
 
 				}
 			}
 			else if ((lines.find("POINT") != lines.npos))
 			{
-				pt = convert_point(lines);
+				pt = convert_point(lines,scale);
 				pt->drawPoint(img,plan);
 			}
 			else if ((lines.find("CARRE") != lines.npos))
 			{
 				if ((lines.find("CARRES") != lines.npos))
 				{
-					ca = convert_square(lines,1);
+					ca = convert_square(lines,1,scale);
 					ca->drawRectangles(img,plan);
 				}
 				else
 				{
-					ca = convert_square(lines,0);
+					ca = convert_square(lines,0,scale);
 					ca->drawRectangle(img,plan);
 				}
 			}
@@ -186,8 +277,3 @@ void openfile(string filename, CImage *img, CImage *plan)
 	}
 	vecfile.close();
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 3afb347807c5eab4f9de21c62254d6bbb0cb1519

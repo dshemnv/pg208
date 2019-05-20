@@ -54,10 +54,50 @@ void Point::setColor(Color color, int transparence)
         pixel->RGB(0,127,255);
         break;
         
+    case gris:
+        pixel->RGB(178,190,181);
+        break;
+    
+    case orange:
+        pixel->RGB(247,127,0);
+        break;
+
+    case noir:
+        pixel->RGB(0,0,0);
+        break;
+    
+    case indigo:
+        pixel->RGB(75,0,130);
+        break;
+    
+    case canard:
+        pixel->RGB(0,128,128);
+        break;
+
+    case bordeaux:
+        pixel->RGB(172,30,68);
+        break;
+    
+    case jaune:
+        pixel->RGB(255,225,53);
+        break;
+    
+    case sangdeboeuf:
+        pixel->RGB(128, 0, 32);
+        break;
+    
+    case aiguemarine:
+        pixel->RGB(121, 248, 248);
+        break;
+    
+    case violet:
+        pixel->RGB(136,6,206);
+        break;
+
     default:
         break;
     }
-//"azur","gris", "orange", "noir", "indigo", "canard", "bordeaux", "jaune", "sang de boeuf","aigue-marine","violet"};
+//"indigo", "canard", "bordeaux", "jaune", "sang de boeuf","aigue-marine","violet"};
     setTransparency(transparence);   
     
 }
@@ -86,7 +126,7 @@ CPixel* Point::drawTransparency(CPixel *oldp)
 void Point::drawPoint(CImage *img, CImage *plan)
 {
     CPixel *pl = plan->getPixel(posX,posY);
-    if( this->getPlan() > pl->Red() )
+    if( this->getPlan() >= pl->Red() )
     {
     pl->Red(pl->Red()+1);
     CPixel *pi = img->getPixel(posX, posY);

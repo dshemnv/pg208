@@ -22,6 +22,10 @@ public:
     void drawRectangles(CImage *img, CImage *plan);
     void setPlan(int p);
     int getPlan();
+    int getLength();
+    int getWidth();
+    int getPosX();
+    int getPosY();
 };
 
 class Carre : public Rectangle

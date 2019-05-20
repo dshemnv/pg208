@@ -9,7 +9,7 @@
                 "type": "cppdbg",
                 "request": "launch",
                 "program": "${command:extension.vscode-wsl-workspaceFolder}/bin/bitmap",
-                "args": [],
+                "args": ["1","test.vec"],
                 "stopAtEntry": false,
                 "cwd": "${command:extension.vscode-wsl-workspaceFolder}",
                 "environment": [],

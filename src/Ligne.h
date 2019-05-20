@@ -19,6 +19,9 @@ public:
     double getPosY();
     void setPlan(int p);
     int getPlan();
+
+    int getPosXo();
+    int getPosYo();
 };
 
 #endif

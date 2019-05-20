@@ -28,6 +28,7 @@
             "type": "shell",
             "label": "run",
             "command": "./bin/bitmap",
+            "args": ["1","carte_elec.vec"],
             "presentation": {
                 "echo": true,
                 "reveal": "always",

@@ -20,7 +20,11 @@ public:
     void drawCircle(CImage *img, CImage *plan);
     void drawCircles(CImage *img, CImage *plan);
     void setPlan(int plan);
+
     int getPlan();
+    int getPosY();
+    int getPosX();
+    int getRadius();
 };
 
 #endif

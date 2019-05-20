@@ -144,6 +144,25 @@ void Rectangle::setPlan(int p)
     ligne->setPlan(p);
 }
 
+int Rectangle::getLength()
+{
+    return longeur;
+}
+
+int Rectangle::getPosX()
+{
+    return posX;
+}
+int Rectangle::getPosY()
+{
+    return posY;
+}
+
+int Rectangle::getWidth()
+{
+    return largeur;
+}
+
 int Rectangle::getPlan()
 {
     return ligne->getPlan();

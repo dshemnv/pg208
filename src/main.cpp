@@ -28,9 +28,15 @@ int main(int argc, char *argv[])
 
     string filename2 = "Sortie.bmp";
 
+    int scale = atoi(argv[1]);
+    string input_file = argv[2];
+
     cout << "(II) CImage pointer extraction" << endl;
-    CImage *img = new CImage(200, 200);
-    CImage *plan = new CImage(200, 200);
+    int* tab = max_lengths(input_file, scale);
+    tab[0] +=2;
+    tab[1] +=2;
+    CImage *img = new CImage(tab[1], tab[0]);
+    CImage *plan = new CImage(tab[1], tab[0]);
 
     // // line->setColor(olive, 30);
     // // line->setCoordinates(100,10,20,60);
@@ -55,7 +61,7 @@ int main(int argc, char *argv[])
     // // rect->setLengths(40,20);
     // // rect->drawRectangles(img);
 
-    openfile("test.vec",img, plan);
+    openfile(input_file, img, plan,scale);
 
     
     image->setImage(img);

@@ -82,14 +82,15 @@ void Ligne::drawLigne(CImage *img, CImage *plan)
             trace->setPosition(xo, yo);
             trace->drawPoint(img,plan);
             xo++;
-            if (coef < 0)
-            {
-                yo -= coef;
-            }
-            else
-            {
-                yo += coef;
-            }
+            yo+=coef;
+            // if (coef < 0)
+            // {
+            //     yo -= coef;
+            // }
+            // else
+            // {
+            //     yo += coef;
+            // }
         }
     }
 }
@@ -102,6 +103,15 @@ double Ligne::getPosX()
 double Ligne::getPosY()
 {
     return fin->getPosY();
+}
+
+int Ligne::getPosXo()
+{
+    return origine->getPosX();
+}
+int Ligne::getPosYo()
+{
+    return origine->getPosY();
 }
 
 void Ligne::setPlan(int p)

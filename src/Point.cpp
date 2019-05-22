@@ -128,7 +128,7 @@ void Point::drawPoint(CImage *img, CImage *plan)
     CPixel *pl = plan->getPixel(posX, posY);
     if (this->getPlan() >= pl->Red())
     {
-        pl->Red(pl->Red() + 1);
+        pl->Red(plan);
         CPixel *pi = img->getPixel(posX, posY);
         pi->RGB(drawTransparency(pi)->Red(), drawTransparency(pi)->Green(), drawTransparency(pi)->Blue());
     }
